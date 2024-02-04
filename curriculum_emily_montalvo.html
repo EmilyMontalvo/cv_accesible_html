@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currículum Vitae</title>
+  <title>Currículum Emily Montalvo</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       margin: 20px;
       padding: 20px;
+      background-color: lightgray;
     }
 
-    h1, h2 {
-      color: #333;
+    header {
+      background-color: black;
+      text-align: center;
+      color: white;
     }
+    td:focus {
+   outline: 2px solid black;
+   background-color: lightgray;
+   font-weight: 600;
+}
 
     table {
       border-collapse: collapse;
@@ -22,85 +31,161 @@
       margin-top: 20px;
     }
 
-    table, th, td {
+    table,
+    th,
+    td {
       border: 1px solid #ddd;
     }
 
-    th, td {
+    th,
+    td {
       padding: 12px;
       text-align: left;
+      border-bottom: 1px solid #ddd;
+      background-color: white;
+      border-color: gray;
+    }
+
+    th {
+      background-color: black;
+      color: white;
     }
 
     img {
       max-width: 200px;
       height: auto;
+      float: left;
+      margin-right: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .referente {
+      float: left;
+      width: 48%;
+      margin-right: 2%;
+      margin-bottom: 20px;
     }
   </style>
 </head>
+<script>
+  document.addEventListener('keydown', function (e) {
+     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const focusedElement = document.activeElement;
+        const cells = Array.from(document.querySelectorAll('td'));
+        const index = cells.indexOf(focusedElement);
+
+        if (index !== -1) {
+           let newIndex;
+
+           if (e.key === 'ArrowRight' && index < cells.length - 1) {
+              newIndex = index + 1;
+           } else if (e.key === 'ArrowLeft' && index > 0) {
+              newIndex = index - 1;
+           } else if (e.key === 'ArrowDown' && index + 3 < cells.length) {
+              newIndex = index + 3;
+           } else if (e.key === 'ArrowUp' && index - 3 >= 0) {
+              newIndex = index - 3;
+           }
+
+           if (newIndex !== undefined) {
+              cells[newIndex].focus();
+           }
+        }
+     }
+  });
+</script>
+
+
 <body>
   <header>
-    <h1>Datos Personales</h1>
-    <img src="foto.jpg" alt="Fotografía de Juan Pérez">
-    <p><strong>Nombre:</strong> Juan Pérez</p>
-    <p><strong>Email:</strong> juan.perez@example.com</p>
-    <p><strong>Teléfono:</strong> 123-456-7890</p>
+    <h1>CURRICULUM DE EMILY MONTALVO</h1>
   </header>
+  <section>
+    <h1 tabindex="1" >Datos Personales</h1>
+    <img tabindex="2" src="./media/fotoEmily.jpg" alt="Fotografía de Emily Montalvo">
+    <div>
+      <p tabindex="3"><strong>Nombre:</strong> Emily Gabriela Montalvo Paz</p>
+      <p tabindex="4"><strong>Email:</strong> emily.montalvo@epn.edu.ec</p>
+      <p tabindex="5"><strong>Teléfono:</strong> 0999289046</p>
+      <p tabindex="6"><strong>Direccion:</strong> Francisco Pachecho y José Figueroa, Quito</p>
+      <p tabindex="7"><strong>Facebook:</strong> Emily Gabriela</p>
+      <p tabindex="8"><strong>Instagram:</strong> emily.montalvo </p>
+      <p tabindex="9"><strong>Teléfono:</strong> 0999289046</p>
+    </div>
+  </section>
 
   <section>
-    <h2>Estudios</h2>
-    <table>
+    <h2 tabindex="10">Estudios</h2>
+    <table role="grid" aria-label="Tabla de Estudios">
       <thead>
         <tr>
-          <th>Grado</th>
-          <th>Institución</th>
-          <th>Año de Graduación</th>
+          <th  tabindex="11" scope="col">Grado</th>
+          <th  tabindex="12" scope="col">Institución</th>
+          <th  tabindex="13" scope="col">Duración</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Licenciatura en Informática</td>
-          <td>Universidad XYZ</td>
-          <td>2020</td>
+          <td  tabindex="14">Bachillerato Unificado en Ciencias</td>
+          <td  tabindex="15">Colegio "24 de Mayo"</td>
+          <td  tabindex="16">2012 - 2018</td>
         </tr>
         <tr>
-          <td>Maestría en Desarrollo Web</td>
-          <td>Instituto ABC</td>
-          <td>2022</td>
+          <td  tabindex="17">Ingeniería en Software</td>
+          <td  tabindex="18">Escuela Politécnica Nacional</td>
+          <td tabindex="19">2019 - actualidad</td>
+        </tr>
+        <tr>
+          <td tabindex="20">Nivel B1 en inglés</td>
+          <td  tabindex="21">Centro de Educación Continua CEC</td>
+          <td  tabindex="22">2017 - 2020</td>
+        </tr>
+        <tr>
+          <td  tabindex="26">Técnico en Uñas</td>
+          <td  tabindex="27">Academia SEC</td>
+          <td  tabindex="28">2023-2024</td>
         </tr>
       </tbody>
     </table>
   </section>
 
   <section>
-    <h2>Experiencia Profesional</h2>
-    <p><strong>Desarrollador Web - Empresa ABC</strong><br>
-      Enero 2021 - Presente<br>
-      Desarrollo y mantenimiento de aplicaciones web. Colaboración en proyectos importantes.</p>
+    <h2  tabindex="29">Experiencia Profesional</h2>
+    <p  tabindex="30"><strong>Desarrollador Junior - Banco Procredit</strong><br>
+      Agosto 2023 - Presente<br>
+      Desarrollo en C#, TypeScript y React <br>
+    </p>
 
-    <p><strong>Analista de Sistemas - Compañía XYZ</strong><br>
-      Junio 2018 - Diciembre 2020<br>
-      Implementación y mejora de sistemas internos. Coordinación de equipos de desarrollo.</p>
+    <p  tabindex="31"><strong>QA - Banco Procredit</strong><br>
+      Agosto 2023 - Presente<br>
+      Utilización de JMeter <br> Pruebas unitarias e integrales <br> Utilización de Kiuwan</p>
   </section>
 
   <section>
-    <h2>Referencias Personales</h2>
-    <p><strong>Nombre del Referente:</strong> María González</p>
-    <p><strong>Relación:</strong> Jefa en Empresa ABC</p>
-    <p><strong>Email:</strong> maria.gonzalez@example.com</p>
-
-    <p><strong>Nombre del Referente:</strong> Alejandro Rodríguez</p>
-    <p><strong>Relación:</strong> Profesor en Universidad XYZ</p>
-    <p><strong>Email:</strong> alejandro.rodriguez@example.com</p>
-  </section>
-
-  <section>
-    <h2>Presentación en Video</h2>
-    <video width="640" height="360" controls>
-      <source src="ruta/al/video.mp4" type="video/mp4">
-      Tu navegador no soporta el elemento de video.
+    <h2  tabindex="32" >Presentación en Video</h2>
+    <video  tabindex="33" width="250" height="350" controls>
+      <source src="./media/videoEmily.mp4" type="video/mp4">
+      <track kind="subtitles" src="./media/subtitulos.vtt" srclang="es" label="Español" default>
     </video>
   </section>
-  
 
+  <section>
+    <h2  tabindex="34">Referencias Personales</h2>
+    <div  tabindex="35" class="referente">
+      <p><strong>Nombre del Referente:</strong> María González</p>
+      <p><strong>Relación:</strong> Jefa en Empresa ProcreditGroup</p>
+      <p><strong>Email:</strong> maria.gonzalez@procredit-group.com</p>
+    </div>
+    <div  tabindex="36" class="referente">
+      <p><strong>Nombre del Referente:</strong> Alejandro Rodríguez</p>
+      <p><strong>Relación:</strong> Profesor en Universidad</p>
+      <p><strong>Email:</strong> alejandro.rodriguez@epn.edu.com</p>
+
+    </div>
+  </section>
 </body>
+
 </html>
